@@ -45,6 +45,13 @@ var morseCodeMap = map[string]string{
     "----.": "9",
 }
 
+var textToMorseMap = map[string]string{}
+
+func init() {
+    for k, v := range morseCodeMap {
+        textToMorseMap[v] = k
+    }
+}
 
 func decodeMorse(morseCode string) string {
     words := strings.Split(morseCode, "   ")
@@ -63,9 +70,26 @@ func decodeMorse(morseCode string) string {
     return strings.TrimSpace(decodedMessage)
 }
 
+func encodeToMorse(text string) string {
+    text = strings.ToUpper(text)
+    words := strings.Split(text, " ")
+    morseMessage := ""
+
+    for _, word := range words {
+        for _, letter := range word {
+            if morseLetter, ok := textToMorseMap[string(letter)]; ok {
+                morseMessage += morseLetter + " "
+            }
+        }
+        morseMessage += "  "
+    }
+
+    return strings.TrimSpace(morseMessage)
+}
+
 func main() {
     if len(os.Args) < 3 {
-        fmt.Println("Usage: go run main.go <decode> <ARG>")
+        fmt.Println("Usage: go run main.go <encode/decode> <ARG>")
         return
     }
 
@@ -73,9 +97,11 @@ func main() {
     message := os.Args[2]
 
     switch mode {
+    case "encode":
+        fmt.Println(encodeToMorse(message))
     case "decode":
         fmt.Println(decodeMorse(message))
     default:
-        fmt.Println("Usage: go run main.go <decode> <ARG>")
+        fmt.Println("Usage: go run main.go <encode/decode> <ARG>")
     }
 }
