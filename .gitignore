@@ -1,0 +1,36 @@
+# Arquivos gerados pela compilação do Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Arquivos gerados pelo teste e cobertura de código do Go
+*.test
+*.out
+*.prof
+
+# Diretórios específicos do Go
+/bin/
+/pkg/
+/vendor/
+
+# Dependências geradas pelo Go Modules
+/go.sum
+/go.mod
+
+# Arquivos de configuração locais (por exemplo, para editores de texto ou IDEs)
+.vscode/
+.idea/
+
+# Arquivos de log ou dados temporários
+*.log
+*.tmp
+*.tmp.*
+
+# Arquivos de backup
+*~
+
+# Arquivos de sistema ou configuração que devem ser ignorados
+.DS_Store
+Thumbs.db
