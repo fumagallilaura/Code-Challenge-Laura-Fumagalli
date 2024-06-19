@@ -1,10 +1,10 @@
 # Morse Code Decoder
 
-Este projeto implementa um decodificador de código Morse em Go.
+Este projeto implementa um codificado/decodificador de código Morse em Go.
 
 ## Descrição Técnica
 
-A solução implementada consiste em um mapa que associa cada sequência de código Morse a sua letra ou número correspondente. A função `decodeMorse` é responsável por decodificar uma string de código Morse em uma mensagem legível. 
+A solução implementada consiste em um mapa que associa cada sequência de código Morse a sua letra ou número correspondente. A função `decodeMorse` é responsável por decodificar uma string de código Morse em uma mensagem legível. Já a função `encodeToMorse` é responsável por codificar uma uma mensagem em uma string de código Morse. 
 
 ## Instruções para Rodar o Programa
 
