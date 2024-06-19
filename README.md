@@ -8,12 +8,18 @@ A solução implementada consiste em um mapa que associa cada sequência de cód
 
 ## Instruções para Rodar o Programa
 
+> Para rodar este projeto é necessário ter o Golang instalado. Para isso, verifique a [documentação oficial](https://go.dev/doc/install).
+
 1. Clone o repositório:
    ```sh
    git clone git@github.com:fumagallilaura/Code-Challenge-Laura-Fumagalli.git
    cd Code-Challenge-Laura-Fumagalli/
    ```
-2. Compile e execute o programa:
+2. Gere as dependências:
+    ```
+    go mod init Code-Challenge-Laura-Fumagalli
+    ```
+3. Compile e execute o programa:
     - Para decodificar:
         ```sh
         go run main.go decode "-..- .- -... .-.. .- ..-"
