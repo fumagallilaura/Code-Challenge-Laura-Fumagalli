@@ -1,6 +1,6 @@
 # Morse Code Decoder
 
-Este projeto implementa um codificado/decodificador de código Morse em Go.
+Este projeto implementa um codificador/decodificador de código Morse em Go.
 
 ## Descrição Técnica
 
