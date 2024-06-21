@@ -87,6 +87,30 @@ func encodeToMorse(text string) string {
     return strings.TrimSpace(morseMessage)
 }
 
+func bitsToMorse(inputBits string) string {
+    inputBits = strings.Trim(inputBits, "0")
+    words := strings.Split(inputBits, "0000000")
+    morseMessage := ""
+
+    for _, word := range words {
+        letters := strings.Split(word, "000")
+        for _,letter := range letters {
+            codes := strings.Split(letter, "0")
+            for _, code := range codes {
+                if len(code) > 2 {
+                    morseMessage += "-"
+                } else {
+                    morseMessage += "."
+                }
+            }
+            morseMessage += " "
+        }
+        morseMessage += "  "
+    }
+    
+    return strings.TrimSpace(morseMessage)
+}
+
 func main() {
     if len(os.Args) < 3 {
         fmt.Println("Usage: go run main.go <encode/decode> <ARG>")
@@ -97,11 +121,13 @@ func main() {
     message := os.Args[2]
 
     switch mode {
-    case "encode":
+    case "encodeToMorse":
         fmt.Println(encodeToMorse(message))
-    case "decode":
+    case "decodeMorse":
         fmt.Println(decodeMorse(message))
+    case "bitsToMorse":
+        fmt.Println(bitsToMorse(message))
     default:
-        fmt.Println("Usage: go run main.go <encode/decode> <ARG>")
+        fmt.Println("Usage: go run main.go <encodeToMorse/decodeMorse/bitsToMorse> <ARG>")
     }
 }
